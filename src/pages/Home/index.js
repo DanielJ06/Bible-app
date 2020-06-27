@@ -1,9 +1,18 @@
 import React, {useEffect, useState} from 'react';
-import { Text, FlatList, View, TouchableOpacity } from 'react-native';
+import { FlatList } from 'react-native';
 
 import api from '../../services/api';
 
-import { Container } from './styles';
+import { 
+  Container,
+  CardContainer,
+  BoxContainer,
+  Abbrev,
+  BookContainer, 
+  Title, 
+  InfoContainer, 
+  Label 
+} from './styles';
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -22,9 +31,23 @@ const Home = () => {
         data={data}
         keyExtractor={(item) => item.abbrev.pt}
         renderItem={({item}) => (
-          <TouchableOpacity key={item.abbrev.pt}>
-            <Text>{item.name}</Text>
-          </TouchableOpacity>
+          <CardContainer>
+            <BoxContainer
+              colors={['#E8B155', '#EA907A']}
+            >
+              <Abbrev>{item.abbrev.pt}</Abbrev>
+            </BoxContainer>
+            <BookContainer key={item.abbrev.pt}>
+              <Title>{item.name}</Title>
+              <InfoContainer>
+                <Label>{item.chapters} capítulos</Label>
+                <Label>{item.group}</Label>
+                <Label>
+                  {item.testament === 'VT' ? 'Velho Testamento' : 'Novo Testamento'}
+                </Label>
+              </InfoContainer>
+            </BookContainer>
+          </CardContainer>
         )}
       />
     </Container>
