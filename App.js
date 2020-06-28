@@ -1,12 +1,15 @@
 import React from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
-import Routes from './src/routes';
+import AuthProvider from './src/contexts/auth';
+import Routes from './src/routes/routes';
 
 const Home = () => {
   return (
     <NavigationContainer>
-      <Routes />
+      <AuthProvider>
+        <Routes />
+      </AuthProvider>
     </NavigationContainer>
   );
 }
