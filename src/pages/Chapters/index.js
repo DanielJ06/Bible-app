@@ -23,17 +23,17 @@ const Chapters = () => {
   }
 
   return (
-      <Container>
-        <ChaptersContainers>
-          {Array.from(Array(book.chapters)).map((x, index) => (
-            <TouchableOpacity onPress={() => navigateToVerses(index)} key={index} >
-              <BtnArea colors={['#E8B155', '#EA907A']}>
-                <BtnText>{index + 1}</BtnText>
-              </BtnArea>
-            </TouchableOpacity>
-          ))}
-        </ChaptersContainers>
-      </Container>
+    <Container>
+    <ChaptersContainers>
+      {Array.from(Array(book.chapters)).map((x, index) => (
+        <TouchableOpacity onPress={() => navigateToVerses(index)} key={parseInt(index)} >
+          <BtnArea colors={['#E8B155', '#EA907A']}>
+            <BtnText>{index + 1}</BtnText>
+          </BtnArea>
+        </TouchableOpacity>
+      ))}
+    </ChaptersContainers>
+  </Container>
   );
 }
 

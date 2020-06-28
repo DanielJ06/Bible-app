@@ -1,11 +1,16 @@
 import React, {useEffect, useState, useContext} from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 
 import { useRoute } from '@react-navigation/native';
 
 import { AuthContext } from '../../contexts/auth';
 import api from '../../services/api';
-// import { Container } from './styles';
+
+import { 
+  Container,
+  VerseContent,
+  VerseNumber,
+} from './styles';
 
 const Verses = () => {
   const [verse, setVerse] = useState([]);
@@ -19,20 +24,21 @@ const Verses = () => {
       const config = {
         headers: { Authorization: `Bearer ${user && user.token}` },
       };
-      const response = await api.get(`verses/acf/${book.abbrev.pt}/${chapter}`, config);
+      const response = await api.get(`verses/nvi/${book.abbrev.pt}/${chapter}`, config);
       setVerse(response.data.verses);
     }
     loadData();
   }, [])
 
   return (
-    <FlatList 
+    <FlatList
       data={verse}
       keyExtractor={(verseNumber) => verseNumber.number}
+      style={{padding: 12}}
       renderItem={({ item }) => (
-        <View>
-          <Text>{item.number} {item.text}</Text>
-        </View>
+        <Container>
+          <VerseContent><VerseNumber>{item.number}</VerseNumber> {item.text}</VerseContent>
+        </Container>
       )}
     />
   );
