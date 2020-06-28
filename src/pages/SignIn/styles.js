@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
-  background-color: #000;
+  background-color: #e5e6f0;
   align-items: center;
   justify-content: center;
 `;
@@ -11,6 +11,7 @@ export const ScreenContainer = styled.View`
   background-color: #fff;
   padding: 32px;
   border-radius: 12px;
+  elevation: 4;
 `;
 
 export const Input = styled.TextInput`
@@ -21,7 +22,7 @@ export const Input = styled.TextInput`
   margin-bottom: 12px;
   align-self: stretch;
 
-  border: 2px solid #999;
+  background-color: #ddd;
   border-radius: 5px;
 `;
 
@@ -38,6 +39,7 @@ export const SubmitBtn = styled.TouchableOpacity`
   background-color: #000;
   border-radius: 7px;
 
+  elevation: 2;
   padding: 12px;
 `; 
 

@@ -11,14 +11,22 @@ import {
 } from './styles';
 
 const Chapters = () => {
-  const routes = useRoute();
-  const { book } = routes.params;
+  const navigation = useNavigation();
+  const route = useRoute();
+  const { book } = route.params;
+
+  function navigateToVerses(index) {
+    navigation.navigate('Verses', {
+      book,
+      chapter: index + 1
+    });
+  }
 
   return (
       <Container>
         <ChaptersContainers>
           {Array.from(Array(book.chapters)).map((x, index) => (
-            <TouchableOpacity key={index} >
+            <TouchableOpacity onPress={() => navigateToVerses(index)} key={index} >
               <BtnArea colors={['#E8B155', '#EA907A']}>
                 <BtnText>{index + 1}</BtnText>
               </BtnArea>

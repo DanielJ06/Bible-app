@@ -25,7 +25,7 @@ export const BtnArea = styled(LinearGradient)`
   margin: 8px;
   padding: 8px;
 
-  border-radius: 21px;
+  border-radius: 68px;
 `;
 
 export const BtnText = styled.Text`
