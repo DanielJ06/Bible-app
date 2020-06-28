@@ -16,6 +16,7 @@ export const ScreenContainer = styled.View`
 export const Input = styled.TextInput`
   height: 42px;
   width: 258px;
+  padding: 5px 10px;
 
   margin-bottom: 12px;
   align-self: stretch;
@@ -30,6 +31,17 @@ export const Title = styled.Text`
   margin-bottom: 18px;
 `;
 
-export const SubmitBtn = styled.TouchableOpacity``; 
+export const SubmitBtn = styled.TouchableOpacity`
+  justify-content: center;
+  align-items: center;
+  
+  background-color: #000;
+  border-radius: 7px;
 
-export const BtnText = styled.Text``;
+  padding: 12px;
+`; 
+
+export const BtnText = styled.Text`
+  color: #fff;
+  font-weight: bold;
+`;

@@ -19,12 +19,8 @@ function AuthProvider({children}) {
   // }, []);
 
   async function signIn(values) {
-    try {
-      const response = await api.post('usuarios/auth', values);
-      setUser(response.data);
-    } catch (err) {
-      setLoading(false);
-    }
+    const response = await api.put('users/token', values);
+    setUser(response.data);
   }
 
   // async function signOut() {

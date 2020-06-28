@@ -10,6 +10,7 @@ export const CardContainer = styled.TouchableOpacity`
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   
   margin: 8px 0;
   border-radius: 5px;
@@ -17,6 +18,12 @@ export const CardContainer = styled.TouchableOpacity`
   
   background-color: #fff;
   elevation: 2;
+`;
+
+export const ContentContainer = styled.View`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 `;
 
 export const BoxContainer = styled(LinearGradient)`
