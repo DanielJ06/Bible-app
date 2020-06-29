@@ -26,7 +26,7 @@ const Chapters = () => {
     <Container>
     <ChaptersContainers>
       {Array.from(Array(book.chapters)).map((x, index) => (
-        <TouchableOpacity onPress={() => navigateToVerses(index)} key={parseInt(index)} >
+        <TouchableOpacity onPress={() => navigateToVerses(index)} key={String(index)} >
           <BtnArea colors={['#E8B155', '#EA907A']}>
             <BtnText>{index + 1}</BtnText>
           </BtnArea>
