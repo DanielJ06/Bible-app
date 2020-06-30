@@ -9,10 +9,14 @@ import api from '../../services/api';
 
 import { 
   Container,
+  InfoContainer,
+  BookAbbrev,
+  ChapterNumber,
   VerseContainer,
   VerseContent,
   VerseNumber,
-  ActionsChapter,
+  BottomActions,
+  Header,
   Previous,
   Next
 } from './styles';
@@ -56,33 +60,44 @@ const Verses = () => {
   }
 
   return (
-    <Container>
-      <FlatList
-        data={verse}
-        keyExtractor={(verseNumber) => String(verseNumber.number)}
-        ListFooterComponent={() => (
-          <Text style={{textAlign: 'center', marginBottom: 64}}>
-            {`© ${new Date().getFullYear()}, 💻 with ❤ by Daniel de Jesus`}
-          </Text>
-        )}
-        renderItem={({ item }) => (
-          <VerseContainer>
-            <VerseNumber>{item.number}</VerseNumber> 
-            <VerseContent>{item.text}</VerseContent>
-          </VerseContainer>
-        )}
-        />
-        {currentChapter !== 1 ? (
-          <Previous onPress={previousChapter}>
-            <Icons name="arrow-left" size={21} />
-          </Previous>
-        ) : <></>}
-        {currentChapter !== book.chapters ? (
-          <Next onPress={nextChapter}>
-            <Icons name="arrow-right" size={21} />
-          </Next>
-        ): <></>}
-    </Container>
+    <React.Fragment>
+      <Container>
+        <FlatList
+          data={verse}
+          style={{marginTop: 32}}
+          showsHorizontalScrollIndicator={false}
+          keyExtractor={(verseNumber) => String(verseNumber.number)}
+          ListFooterComponent={() => (
+            <Text style={{textAlign: 'center', marginBottom: 86}}>
+              {`© ${new Date().getFullYear()}, 💻 with ❤ by Daniel de Jesus`}
+            </Text>
+          )}
+          renderItem={({ item }) => (
+            <VerseContainer>
+              <VerseContent><VerseNumber>{item.number} </VerseNumber>{item.text}</VerseContent>
+            </VerseContainer>
+          )}
+          />
+          <BottomActions>
+            <Previous onPress={previousChapter}>
+              <Icons name="arrow-left" size={21} />
+            </Previous>
+            <Header>
+              <InfoContainer>
+                <BookAbbrev>{book.abbrev.pt}</BookAbbrev>
+                <Icons name="chevron-down" size={21} />
+              </InfoContainer>
+              <InfoContainer>
+                <ChapterNumber>{currentChapter}</ChapterNumber>
+                <Icons name="chevron-down" size={21} />
+              </InfoContainer>
+            </Header>
+            <Next onPress={nextChapter}>
+              <Icons name="arrow-right" size={21} />
+            </Next>
+          </BottomActions>
+      </Container>
+    </React.Fragment>
   );
 }
 
