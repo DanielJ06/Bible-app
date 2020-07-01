@@ -1,7 +1,7 @@
 import React, {useEffect, useState, useContext} from 'react';
 import { FlatList, Text } from 'react-native';
 
-import { useRoute } from '@react-navigation/native';
+import { useRoute, useNavigation } from '@react-navigation/native';
 import Icons from '@expo/vector-icons/Feather';
 
 import { AuthContext } from '../../contexts/auth';
@@ -26,6 +26,16 @@ const Verses = () => {
 
   const route = useRoute();
   const { book, chapter } = route.params;
+
+  const navigation = useNavigation();
+  
+  function navigateToBooks(index) {
+    navigation.navigate('Books');
+  }
+
+  function navigateToChapters(index) {
+    navigation.navigate('Chapters');
+  }
 
   const [verse, setVerse] = useState([]);
   const [currentChapter, setCurrentChapter] = useState(chapter);
@@ -83,11 +93,11 @@ const Verses = () => {
               <Icons name="arrow-left" size={21} />
             </Previous>
             <Header>
-              <InfoContainer>
+              <InfoContainer onPress={navigateToBooks}>
                 <BookAbbrev>{book.abbrev.pt}</BookAbbrev>
                 <Icons name="chevron-down" size={21} />
               </InfoContainer>
-              <InfoContainer>
+              <InfoContainer onPress={navigateToChapters}>
                 <ChapterNumber>{currentChapter}</ChapterNumber>
                 <Icons name="chevron-down" size={21} />
               </InfoContainer>
