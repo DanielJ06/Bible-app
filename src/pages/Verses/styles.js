@@ -1,12 +1,12 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.SafeAreaView`
+export const Container = styled.View`
+  flex: 1;
   background-color: #e5e6f0;
   padding: 0 16px;
 `;
 
 export const Header = styled.SafeAreaView`
-  display: flex;
   flex-direction: row;
   
   padding:  5px 20px;
@@ -15,7 +15,7 @@ export const Header = styled.SafeAreaView`
   
   background-color: #eee; 
   border-radius: 30px; 
-  elevation: 8;
+  elevation: 4;
 `;
 
 export const InfoContainer = styled.TouchableOpacity`
@@ -63,7 +63,7 @@ export const BottomActions = styled.View`
   
   align-items: center; 
   justify-content: space-between;  
-  bottom: 72px;
+  bottom: 24px;
 `;
 
 export const Previous = styled.TouchableOpacity`
@@ -73,7 +73,7 @@ export const Previous = styled.TouchableOpacity`
   justify-content: center;  
   background-color: #eee; 
   border-radius: 30px; 
-  elevation: 8;
+  elevation: 4;
 `;
 
 export const Next = styled.TouchableOpacity`
@@ -83,5 +83,5 @@ export const Next = styled.TouchableOpacity`
   justify-content: center;  
   background-color: #eee; 
   border-radius: 30px; 
-  elevation: 8;
+  elevation: 4;
 `;

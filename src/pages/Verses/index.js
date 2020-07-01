@@ -74,7 +74,7 @@ const Verses = () => {
       <Container>
         <FlatList
           data={verse}
-          style={{marginTop: 32}}
+          style={{marginTop: 42, flex: 1}}
           showsHorizontalScrollIndicator={false}
           keyExtractor={(verseNumber) => String(verseNumber.number)}
           ListFooterComponent={() => (

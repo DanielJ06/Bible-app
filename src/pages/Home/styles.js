@@ -2,6 +2,7 @@ import styled from 'styled-components/native';
 import { LinearGradient } from 'expo-linear-gradient';
 
 export const Container = styled.View`
+  flex: 1;
   padding: 23px;
   background-color: #e5e6f0;
 `;
